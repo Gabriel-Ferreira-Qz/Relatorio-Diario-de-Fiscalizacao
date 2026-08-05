@@ -1,0 +1,24 @@
+import styles from "../components/styles/Main.module.css"
+
+import Header from "../components/layout/Header.jsx";
+import Identificacao from "@/components/layout/Identificacao.jsx";
+import Autorizacao from "@/components/layout/Autorizacao";
+import SegurancaDoTrabalho from "@/components/layout/SegurancaDoTrabalho";
+import AtividadeExecutada from "@/components/layout/AtividadeExecutada";
+
+
+export default function Home() {
+  return (
+    <div>
+      <Header /> 
+      <main>
+        <section className={styles.container}>
+          <Identificacao />
+          <Autorizacao />
+          <SegurancaDoTrabalho />
+          <AtividadeExecutada />
+        </section>
+      </main>
+    </div>
+  );
+}  
