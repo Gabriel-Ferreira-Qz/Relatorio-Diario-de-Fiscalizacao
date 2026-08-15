@@ -37,8 +37,21 @@
     gap: 14px;
 }
 
+.formularioStopWork {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
 .colSpan2 {
     grid-column: span 2;
+}
+
+.flexColumn14 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
 .horario {
@@ -145,3 +158,30 @@
     resize: none;
 }
 
+.inputFotos {
+    display: none;
+}
+
+.btnAddFotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 28px;
+    border: 2px dashed var(--borda-grossa);
+    background-color: var(--cinza-input);
+    font-size: 0.812rem;
+    text-transform: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnAddFotos:hover {
+    background-color: var(--verde-claro);
+    border-color: var(--azul);
+}
+
+.btnAddFotos p span {
+    font-weight: 600;
+    color: var(--verde-escuro);
+}

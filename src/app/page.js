@@ -5,6 +5,9 @@ import Identificacao from "@/components/layout/Identificacao.jsx";
 import Autorizacao from "@/components/layout/Autorizacao";
 import SegurancaDoTrabalho from "@/components/layout/SegurancaDoTrabalho";
 import AtividadeExecutada from "@/components/layout/AtividadeExecutada";
+import StopWork from "@/components/layout/StopWork";
+import DetalhamentoAtividade from "@/components/layout/DetalhamentoAtividade";
+import RegistroFotografico from "@/components/layout/RegistroFotografico";
 
 
 export default function Home() {
@@ -17,6 +20,9 @@ export default function Home() {
           <Autorizacao />
           <SegurancaDoTrabalho />
           <AtividadeExecutada />
+          <StopWork />
+          <DetalhamentoAtividade />
+          <RegistroFotografico />
         </section>
       </main>
     </div>

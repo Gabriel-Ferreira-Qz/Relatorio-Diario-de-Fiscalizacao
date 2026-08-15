@@ -1,9 +1,30 @@
-import styles from "../styles/Secao.module.css"
-import clsx from "clsx"
+"use client"
 
-import {criarCampoBooleano, criarCampoDeTexto} from "../../utils/CriarCampos.jsx"
+import styles from "../styles/Secao.module.css"
+
+import clsx from "clsx"
+import { criarCampoBooleano, criarCampoDeTexto } from "../../utils/CriarCampos.jsx"
+import { useState } from "react"
 
 export default function SegurancaDoTrabalho() {
+
+    const [semInspencao, setSemInspencao] = useState(false)
+
+    const [valoresCampos, setValoresCampos] = useState({ id: "", pa: "" })
+
+    function handleSelectChange(e) {
+        const { id, value } = e.target
+
+        if (id === 'inspencao') {
+            setSemInspencao(value === 'Não')
+        }
+    }
+
+    function handleTextChange(e) {
+        const { id, value } = e.target
+
+        return setValoresCampos({ ...valoresCampos, [id]: value })
+    }
 
     const formCampos = {
         dds: criarCampoBooleano("dds-realizado", "DDS Realizado?"),
@@ -74,6 +95,7 @@ export default function SegurancaDoTrabalho() {
                                 name={campo.chave}
                                 id={campo.chave}
                                 className={styles.input}
+                                onChange={handleSelectChange}
                             >
                                 {campo.opcao.map((opt, k) => (
                                     <option
@@ -84,15 +106,26 @@ export default function SegurancaDoTrabalho() {
                                     </option>
                                 ))}
                             </select>
+                        ) : campo.chave === "id" || campo.chave === "pa" ? (
+                        <input
+                            type="text"
+                            name={campo.chave}
+                            id={campo.chave}
+                            placeholder={campo.ph}
+                            className={styles.input}
+                            value={semInspencao ? "N/A" : valoresCampos[campo.chave]}
+                            disabled={semInspencao}
+                            onChange={handleTextChange}
+                        />
                         ) : (
-                            <input
-                                type={campo.tipo}
-                                name={campo.chave}
-                                id={campo.chave}
-                                placeholder={campo.ph}
-                                className={styles.input}
-                            />
-                        )}
+                        <input
+                            type="text"
+                            name={campo.chave}
+                            id={campo.chave}
+                            placeholder={campo.ph}
+                            className={styles.input}
+                        />
+)}
                     </div>
                 )}
             </div>
