@@ -1,0 +1,19 @@
+.rodape {
+    text-align: center;
+    text-transform: none;
+    padding-bottom: 64px;
+    color: var(--cinza-texto);
+}
+
+.rodapeLink {
+    color: var(--verde-escuro);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.rodapeLink:hover {
+    color: var(--azul);
+    text-decoration: underline;
+}

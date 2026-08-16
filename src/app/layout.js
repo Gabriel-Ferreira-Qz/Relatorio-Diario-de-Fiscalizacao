@@ -6,7 +6,8 @@ const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-export default function RootLayout({ children }) {
+
+export default function Rootayout({ children }) {
   return (
     <html lang="pt-br" className={`${ibmPlexSans.variable}`}>
       <body>{children}</body>

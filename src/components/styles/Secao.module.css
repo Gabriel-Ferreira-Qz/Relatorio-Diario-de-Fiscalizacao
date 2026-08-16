@@ -102,29 +102,30 @@
     flex-direction: column;
     gap: 14px;
 }
-.removerFormulario{
+
+.removerFormulario {
     display: flex;
     justify-content: flex-end;
 }
 
 .removerFormulario button {
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  background: none;
-  border: 1px solid var(--cinza-texto);
-  border-radius: 4px;
-  color: var(--cinza-texto);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .15s;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--cinza-texto);
+    border-radius: 4px;
+    color: var(--cinza-texto);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
 }
 
 .removerFormulario button:hover {
-  background: #FDEAEA;
-  color: var(--vermelho);
-  border-color: var(--vermelho)
+    background: #FDEAEA;
+    color: var(--vermelho);
+    border-color: var(--vermelho)
 }
 
 .addFormulario {
@@ -184,4 +185,62 @@
 .btnAddFotos p span {
     font-weight: 600;
     color: var(--verde-escuro);
+}
+
+.fotosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 0 16px 16px;
+}
+
+.fotosCard {
+    background-color: var(--cinza-input);
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    position: relative;
+}
+
+.deletarFoto {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    background: rgba(0, 0, 0, .55);
+    color: var(--branco);
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+}
+
+.deletarFoto:hover {
+    background-color: var(--vermelho) 
+}
+
+.legendaImagem {
+    padding: 5px 6px;
+}
+
+.legendaImagem input {
+    width: 100%;
+    padding: 3px 5px;
+    font-size: 11px;
+    font-family: var(--font);
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.legendaImagem input:focus {
+    background-color: var(--branco);
+    border-color: #D6D3CB;
+    box-shadow: 0 0 0 3px rgba(45, 95, 138, .12);
 }

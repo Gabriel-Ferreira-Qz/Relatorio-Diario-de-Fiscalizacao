@@ -3,18 +3,24 @@
 import { useState } from "react"
 
 import styles from "../styles/Secao.module.css"
+import Image from "next/image"
 
 export default function RegistroFotografico() {
 
     const [imagensSelecinadas, setImagensSelecinadas] = useState([])
 
     function salvarImagens(img) {
-        const valorImg = Array.from(img.target.files)
+        const arquivo = Array.from(img.target.files)
+
+        const valorImg = arquivo.map(file => {
+            return { idArquivo: crypto.randomUUID(), arquivoInserido: file }
+        })
         setImagensSelecinadas([...imagensSelecinadas, ...valorImg])
     }
-    
-    console.log(imagensSelecinadas)
 
+    function deletarImagem(idDeletado) {
+        setImagensSelecinadas(imagensSelecinadas.filter(file => file.idArquivo !== idDeletado))
+    }
 
     return (
         <section className={styles.secao}>
@@ -48,13 +54,43 @@ export default function RegistroFotografico() {
                 onChange={salvarImagens}
             />
 
-            <div>
-                {imagensSelecinadas.map((arquivo, k) => {
-                    const url = URL.createObjectURL(arquivo)
-
-                    return( 
-                        <div key={k}>
-                            <img src={url} alt="teste" />
+            <div className={styles.fotosGrid}>
+                {imagensSelecinadas.map((img) => {
+                    const url = URL.createObjectURL(img.arquivoInserido)
+                    return (
+                        <div
+                            className={styles.fotosCard}
+                            key={img.idArquivo}
+                        >
+                            <Image
+                                src={url}
+                                width={150}
+                                height={112}
+                                style=
+                                {
+                                    {
+                                        width: '100%',
+                                        height: 'auto',
+                                        objectFit: 'cover',
+                                        aspectRatio: '4/3',
+                                    }
+                                }
+                                alt={img.arquivoInserido.name}
+                            />
+                            <div className={styles.legendaImagem}>
+                                <input
+                                    type="text"
+                                    placeholder="Legenda..."
+                                    id="legendaImagem"
+                                    name="legendaImagem"
+                                />
+                            </div>
+                            <button
+                                className={styles.deletarFoto}
+                                onClick={() => deletarImagem(img.idArquivo)}
+                            >
+                                x
+                            </button>
                         </div>
                     )
                 })}

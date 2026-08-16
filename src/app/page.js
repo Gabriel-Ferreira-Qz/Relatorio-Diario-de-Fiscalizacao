@@ -8,6 +8,7 @@ import AtividadeExecutada from "@/components/layout/AtividadeExecutada";
 import StopWork from "@/components/layout/StopWork";
 import DetalhamentoAtividade from "@/components/layout/DetalhamentoAtividade";
 import RegistroFotografico from "@/components/layout/RegistroFotografico";
+import Rodape from "@/components/layout/Rodape";
 
 
 export default function Home() {
@@ -25,6 +26,9 @@ export default function Home() {
           <RegistroFotografico />
         </section>
       </main>
+      <footer>
+        <Rodape />
+      </footer>
     </div>
   );
 }  
