@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RDF — Relatório Diário de Fiscalização
 
-## Getting Started
+Aplicação web para preenchimento digital do **Relatório Diário de Fiscalização (RDF)**, usado para registrar atividades, autorizações, condições de segurança do trabalho e ocorrências em campo durante a execução de projetos técnicos.
 
-First, run the development server:
+O projeto nasceu como uma ferramenta interna para a Satel Brasil e hoje é mantido como projeto pessoal, em processo de migração de HTML/CSS/JavaScript puro para **Next.js**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🔗 **Demo:** https://relatorio-diario-de-fiscalizacao.vercel.app/
+
+> ⚠️ Projeto em desenvolvimento ativo. Algumas seções ainda usam dados estáticos e a persistência dos dados (banco de dados, autenticação) está sendo implementada.
+
+## O que o RDF faz
+
+O formulário é dividido em seções que acompanham o fluxo real de uma fiscalização em campo:
+
+1. **Identificação da Atividade** — segmento, projeto, RDO, responsável técnico, empresa executora, data e horário.
+2. **Autorização** — vigência das autorizações de trabalho, com possibilidade de adicionar múltiplos registros dinamicamente.
+3. **Segurança do Trabalho** — checklist de DDS (Diálogo Diário de Segurança) e demais itens de conformidade.
+4. **Atividade Executada** — descrição, endereço e observações da atividade, com suporte a múltiplos grupos de atividade adicionados dinamicamente.
+5. **Stop Work** — registro de paralisações de trabalho por questões de segurança.
+6. **Detalhamento de Atividade** — campo livre para detalhamento textual.
+7. **Registro Fotográfico** — upload de múltiplas imagens como evidência da fiscalização.
+8. **Exportação em PDF** — geração do relatório final para envio/arquivamento.
+
+## Tecnologias utilizadas
+
+- **[Next.js](https://nextjs.org/)** (App Router) — framework React usado na migração do projeto
+- **[React](https://react.dev/)** — componentização e gerenciamento de estado (`useState`) dos formulários dinâmicos
+- **CSS Modules** — estilização isolada por componente
+- **[clsx](https://github.com/lukeed/clsx)** — composição condicional de classes CSS
+- **[jsPDF](https://github.com/parallax/jsPDF)** — geração do relatório em PDF
+- **[Vercel](https://vercel.com/)** — deploy e hospedagem
+- **MySQL** *(em andamento)* — persistência dos dados, atualmente em ambiente local
+
+## Estrutura do projeto
+
+```
+src/
+├── app/                  # Rotas e layout raiz (App Router)
+│   ├── layout.js
+│   ├── page.js
+│   └── globals.css
+├── components/
+│   ├── layout/           # Componentes de cada seção do formulário
+│   └── styles/           # CSS Modules por componente
+└── utils/
+    └── CriarCampos.jsx   # Funções utilitárias para criação de campos de formulário reutilizáveis
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Rodando localmente
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+# Clonar o repositório
+git clone https://github.com/Gabriel-Ferreira-Qz/Relatorio-Diario-de-Fiscalizacao.git
+cd Relatorio-Diario-de-Fiscalizacao
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Instalar dependências
+pnpm install
+# ou: npm install / yarn install
 
-## Learn More
+# Rodar o servidor de desenvolvimento
+pnpm dev
+# ou: npm run dev / yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [ ] Migrar dados estáticos (ex.: lista de técnicos) para consumo via banco de dados MySQL
+- [ ] Implementar autenticação (login)
+- [ ] Adicionar novas seções/páginas ao sistema
+- [ ] Persistência completa dos relatórios preenchidos
 
-## Deploy on Vercel
+## Autor
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Gabriel Ferreira** — [LinkedIn](https://www.linkedin.com/in/gabriel-f-queiroz/)
