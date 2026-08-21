@@ -1,5 +1,11 @@
+"use client"
+
+import { useState } from "react"
+
 import styles from "../styles/Secao.module.css"
 import clsx from "clsx"
+
+import { criarCampoBooleano, criarCampoDeTexto } from "../../utils/CriarCampos"
 
 export default function Identificacao() {
 
@@ -123,6 +129,199 @@ export default function Identificacao() {
         }
     ]
 
+    const [dataRelatorio, setDataRealatorio] = useState(() => {
+        const data = new Date()
+        const dia = String(data.getDate()).padStart(2, '0')
+        const mes = String(data.getMonth() + 1).padStart(2, '0')
+        const ano = String(data.getFullYear())
+        return `${ano}-${mes}-${dia}`
+    })
+
+    const formIdentificacao = {
+        segmento: {
+            tipo: "select",
+            chave: "segmento",
+            label: "Segmento",
+            className: clsx(styles.campo, styles.colSpan2),
+            opcao:[
+                {
+                    opcao: 'Selecione...',
+                    value: ''
+                },
+                {
+                    opcao: 'Manutenção e Operações de Rede',
+                    value: '1'
+                },
+                {
+                    opcao: 'Assistência Técnica',
+                    value: '2'
+                },
+                {
+                    opcao: 'Automação e Catódica',
+                    value: '3'
+                },
+                {
+                    opcao: 'Manutenção Civil',
+                    value: '4'
+                },
+                {
+                    opcao: 'Segurança do Trabalho',
+                    value: '5'
+                }
+            ]
+        },
+
+        projeto: criarCampoDeTexto("projeto", "Projeto", "Ex: Troca de Bateria ISA", clsx(styles.campo, styles.colSpan2)),
+        rdo: criarCampoBooleano("rdo", "RDO"),
+
+        tecnico: {
+            tipo: "select",
+            chave: "tecnico",
+            label: "Responsável Técnico",
+            className: "",
+            opcao:[
+                {
+                    value: '',
+                    class: '',
+                    nome: 'Selecione...'
+                },
+                {
+                    value: '1',
+                    class: 'tecGas',
+                    nome: 'Ricardo Alves'
+                },
+                {
+                    value: '2',
+                    class: 'tecGas',
+                    nome: 'Luiz Ricardo'
+                },
+                {
+                    value: '3',
+                    class: 'tecGas',
+                    nome: 'Felipe Silva'
+                },
+                {
+                    value: '4',
+                    class: 'tecGas',
+                    nome: 'Izael Rodrigues'
+                },
+                {
+                    value: '5',
+                    class: 'tecGas',
+                    nome: 'Ranieri Freitas'
+                },
+                {
+                    value: '6',
+                    class: 'tecGas',
+                    nome: 'Sérgio Grazia'
+                },
+                {
+                    value: '7',
+                    class: 'tecSeguranca',
+                    nome: 'Carlos Antônio'
+                },
+                {
+                    value: '8',
+                    class: 'tecSeguranca',
+                    nome: 'Yuri da Silva'
+                },
+                {
+                    value: '9',
+                    class: 'tecSeguranca',
+                    nome: 'Rafael Assunção'
+                },
+                {
+                    value: '10',
+                    class: 'tecSeguranca',
+                    nome: 'Kathelleen Silva'
+                },
+                {
+                    value: '11',
+                    class: 'tecSeguranca',
+                    nome: 'Vanessa'
+                },
+                {
+                    value: '12',
+                    class: 'tecSeguranca',
+                    nome: 'Kelven'
+                },
+                {
+                    value: '13',
+                    class: 'tecSeguranca',
+                    nome: 'Ariane Aparecida'
+                },
+                {
+                    value: '14',
+                    class: 'tecSeguranca',
+                    nome: 'Luiz Lima'
+                },
+                {
+                    value: '15',
+                    class: 'tecSeguranca',
+                    nome: 'Andrea de Miranda'
+                },
+                {
+                    value: '16',
+                    class: 'tecSeguranca',
+                    nome: 'William Hippolito'
+                },
+                {
+                    value: '17',
+                    class: 'tecSeguranca',
+                    nome: 'Alexandre Vila'
+                }
+            ]
+        },
+
+        empresa: criarCampoDeTexto("empresa", "Empresa Executora", "Nome da Empresa"),
+
+        dataRelatorio: {
+            tipo: "date",
+            chave: "data",
+            label: "Data do Relatório",
+            className: ""
+        },
+
+        periodo: {
+            tipo: "select",
+            chave: "periodo",
+            label: "Período",
+            className: "",
+            opcao: [
+                {
+                    texto: "Selecione...",
+                    value: ""
+                },
+                {
+                    texto: "Diurno",
+                    value: "Diurno"
+                },
+                {
+                    texto: "Noturno",
+                    value: "Noturno"
+                }
+            ]
+        },
+
+        horaInicio: {
+            tipo: "time",
+            chave: "inicio",
+            label: "Início",
+            className: ""
+        },
+
+        horaInicio: {
+            tipo: "time",
+            chave: "termino",
+            label: "Término",
+            className: ""
+        }
+    }
+
+    const teste = Object.entries(formIdentificacao).map((i) => i[1])
+
+    console.log(teste)
+
     return (
         <section className={styles.secao}>
             <div className={styles.cabecalho}>
@@ -242,6 +441,8 @@ export default function Identificacao() {
                         type="date"
                         name="data"
                         id="data"
+                        value={dataRelatorio}
+                        onChange={(e) => setDataRealatorio(e.target.value)}
                         className={styles.input}
                     />
                 </div>
