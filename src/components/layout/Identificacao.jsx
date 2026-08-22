@@ -9,126 +9,6 @@ import { criarCampoBooleano, criarCampoDeTexto } from "../../utils/CriarCampos"
 
 export default function Identificacao() {
 
-    const OpcoesSegmento = [
-        {
-            opcao: 'Selecione...',
-            value: ''
-        },
-        {
-            opcao: 'Manutenção e Operações de Rede',
-            value: '1'
-        },
-        {
-            opcao: 'Assistência Técnica',
-            value: '2'
-        },
-        {
-            opcao: 'Automação e Catódica',
-            value: '3'
-        },
-        {
-            opcao: 'Manutenção Civil',
-            value: '4'
-        },
-        {
-            opcao: 'Segurança do Trabalho',
-            value: '5'
-        }
-    ]
-
-    const tecnicosDeCampo = [
-        {
-            value: '',
-            class: '',
-            nome: 'Selecione...'
-        },
-        {
-            value: '1',
-            class: 'tecGas',
-            nome: 'Ricardo Alves'
-        },
-        {
-            value: '2',
-            class: 'tecGas',
-            nome: 'Luiz Ricardo'
-        },
-        {
-            value: '3',
-            class: 'tecGas',
-            nome: 'Felipe Silva'
-        },
-        {
-            value: '4',
-            class: 'tecGas',
-            nome: 'Izael Rodrigues'
-        },
-        {
-            value: '5',
-            class: 'tecGas',
-            nome: 'Ranieri Freitas'
-        },
-        {
-            value: '6',
-            class: 'tecGas',
-            nome: 'Sérgio Grazia'
-        },
-        {
-            value: '7',
-            class: 'tecSeguranca',
-            nome: 'Carlos Antônio'
-        },
-        {
-            value: '8',
-            class: 'tecSeguranca',
-            nome: 'Yuri da Silva'
-        },
-        {
-            value: '9',
-            class: 'tecSeguranca',
-            nome: 'Rafael Assunção'
-        },
-        {
-            value: '10',
-            class: 'tecSeguranca',
-            nome: 'Kathelleen Silva'
-        },
-        {
-            value: '11',
-            class: 'tecSeguranca',
-            nome: 'Vanessa'
-        },
-        {
-            value: '12',
-            class: 'tecSeguranca',
-            nome: 'Kelven'
-        },
-        {
-            value: '13',
-            class: 'tecSeguranca',
-            nome: 'Ariane Aparecida'
-        },
-        {
-            value: '14',
-            class: 'tecSeguranca',
-            nome: 'Luiz Lima'
-        },
-        {
-            value: '15',
-            class: 'tecSeguranca',
-            nome: 'Andrea de Miranda'
-        },
-        {
-            value: '16',
-            class: 'tecSeguranca',
-            nome: 'William Hippolito'
-        },
-        {
-            value: '17',
-            class: 'tecSeguranca',
-            nome: 'Alexandre Vila'
-        }
-    ]
-
     const [dataRelatorio, setDataRealatorio] = useState(() => {
         const data = new Date()
         const dia = String(data.getDate()).padStart(2, '0')
@@ -143,29 +23,29 @@ export default function Identificacao() {
             chave: "segmento",
             label: "Segmento",
             className: clsx(styles.campo, styles.colSpan2),
-            opcao:[
+            opcao: [
                 {
-                    opcao: 'Selecione...',
+                    texto: 'Selecione...',
                     value: ''
                 },
                 {
-                    opcao: 'Manutenção e Operações de Rede',
+                    texto: 'Manutenção e Operações de Rede',
                     value: '1'
                 },
                 {
-                    opcao: 'Assistência Técnica',
+                    texto: 'Assistência Técnica',
                     value: '2'
                 },
                 {
-                    opcao: 'Automação e Catódica',
+                    texto: 'Automação e Catódica',
                     value: '3'
                 },
                 {
-                    opcao: 'Manutenção Civil',
+                    texto: 'Manutenção Civil',
                     value: '4'
                 },
                 {
-                    opcao: 'Segurança do Trabalho',
+                    texto: 'Segurança do Trabalho',
                     value: '5'
                 }
             ]
@@ -179,96 +59,96 @@ export default function Identificacao() {
             chave: "tecnico",
             label: "Responsável Técnico",
             className: "",
-            opcao:[
+            opcao: [
                 {
                     value: '',
                     class: '',
-                    nome: 'Selecione...'
+                    texto: 'Selecione...'
                 },
                 {
                     value: '1',
                     class: 'tecGas',
-                    nome: 'Ricardo Alves'
+                    texto: 'Ricardo Alves'
                 },
                 {
                     value: '2',
                     class: 'tecGas',
-                    nome: 'Luiz Ricardo'
+                    texto: 'Luiz Ricardo'
                 },
                 {
                     value: '3',
                     class: 'tecGas',
-                    nome: 'Felipe Silva'
+                    texto: 'Felipe Silva'
                 },
                 {
                     value: '4',
                     class: 'tecGas',
-                    nome: 'Izael Rodrigues'
+                    texto: 'Izael Rodrigues'
                 },
                 {
                     value: '5',
                     class: 'tecGas',
-                    nome: 'Ranieri Freitas'
+                    texto: 'Ranieri Freitas'
                 },
                 {
                     value: '6',
                     class: 'tecGas',
-                    nome: 'Sérgio Grazia'
+                    texto: 'Sérgio Grazia'
                 },
                 {
                     value: '7',
                     class: 'tecSeguranca',
-                    nome: 'Carlos Antônio'
+                    texto: 'Carlos Antônio'
                 },
                 {
                     value: '8',
                     class: 'tecSeguranca',
-                    nome: 'Yuri da Silva'
+                    texto: 'Yuri da Silva'
                 },
                 {
                     value: '9',
                     class: 'tecSeguranca',
-                    nome: 'Rafael Assunção'
+                    texto: 'Rafael Assunção'
                 },
                 {
                     value: '10',
                     class: 'tecSeguranca',
-                    nome: 'Kathelleen Silva'
+                    texto: 'Kathelleen Silva'
                 },
                 {
                     value: '11',
                     class: 'tecSeguranca',
-                    nome: 'Vanessa'
+                    texto: 'Vanessa'
                 },
                 {
                     value: '12',
                     class: 'tecSeguranca',
-                    nome: 'Kelven'
+                    texto: 'Kelven'
                 },
                 {
                     value: '13',
                     class: 'tecSeguranca',
-                    nome: 'Ariane Aparecida'
+                    texto: 'Ariane Aparecida'
                 },
                 {
                     value: '14',
                     class: 'tecSeguranca',
-                    nome: 'Luiz Lima'
+                    texto: 'Luiz Lima'
                 },
                 {
                     value: '15',
                     class: 'tecSeguranca',
-                    nome: 'Andrea de Miranda'
+                    texto: 'Andrea de Miranda'
                 },
                 {
                     value: '16',
                     class: 'tecSeguranca',
-                    nome: 'William Hippolito'
+                    texto: 'William Hippolito'
                 },
                 {
                     value: '17',
                     class: 'tecSeguranca',
-                    nome: 'Alexandre Vila'
+                    texto: 'Alexandre Vila'
                 }
             ]
         },
@@ -301,26 +181,55 @@ export default function Identificacao() {
                     value: "Noturno"
                 }
             ]
-        },
-
-        horaInicio: {
-            tipo: "time",
-            chave: "inicio",
-            label: "Início",
-            className: ""
-        },
-
-        horaInicio: {
-            tipo: "time",
-            chave: "termino",
-            label: "Término",
-            className: ""
         }
     }
 
-    const teste = Object.entries(formIdentificacao).map((i) => i[1])
+    const listaCampos = Object.entries(formIdentificacao).map((i) => i[1])
 
-    console.log(teste)
+    console.log(listaCampos)
+
+    function renderizarCampo(campo) {
+        switch (campo.tipo) {
+            case "select":
+                return (
+                    <select
+                        name={campo.chave}
+                        id={campo.chave}
+                        className={styles.input}
+                    >
+                        {campo.opcao.map((opt, k) => (
+                            <option
+                                key={k}
+                                value={opt.value}
+                            >
+                                {opt.texto}
+                            </option>
+                        ))}
+                    </select>
+                )
+            case "text":
+                return (
+                    <input
+                        type={campo.tipo}
+                        name={campo.chave}
+                        id={campo.chave}
+                        placeholder={campo.ph}
+                        className={styles.input}
+                    />
+                )
+            case "date":
+                return (
+                    <input
+                        type={campo.tipo}
+                        name={campo.chave}
+                        id={campo.chave}
+                        className={styles.input}
+                        value={dataRelatorio}
+                        onChange={(e) => setDataRealatorio(e.target.value)}
+                    />
+                )
+        }
+    }
 
     return (
         <section className={styles.secao}>
@@ -330,141 +239,15 @@ export default function Identificacao() {
             </div>
 
             <div className={styles.formulario}>
-                <div className={clsx(styles.campo, styles.colSpan2)}>
-                    <label
-                        htmlFor="segmento"
-                        className={styles.label}
+                {listaCampos.map((campo) => (
+                    <div
+                        key={campo.chave}
+                        className={campo.className || styles.campo}
                     >
-                        Segmento
-                    </label>
-
-                    <select
-                        name="segmento"
-                        id="segmento"
-                        className={styles.input}
-                    >
-                        {OpcoesSegmento.map((opt, k) =>
-                            <option
-                                value={opt.value}
-                                key={k}
-                            >
-                                {opt.opcao}
-                            </option>
-                        )}
-                    </select>
-                </div>
-
-                <div className={clsx(styles.campo, styles.colSpan2)}>
-                    <label
-                        htmlFor="projeto"
-                        className={styles.label}
-                    >
-                        Projeto
-                    </label>
-                    <input
-                        type="text"
-                        name="projeto"
-                        id="projeto"
-                        placeholder="Ex: Troca de Bateria ISA"
-                        className={styles.input}
-                    />
-                </div>
-
-                <div className={styles.campo}>
-                    <label
-                        htmlFor="rdo"
-                        className={styles.label}
-                    >
-                        RDO
-                    </label>
-
-                    <select
-                        name="rdo"
-                        id="rdo"
-                        className={styles.input}
-                    >
-                        <option>Selecione...</option>
-                        <option>N/A</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
-                </div>
-
-                <div className={styles.campo}>
-                    <label
-                        htmlFor="resposavel"
-                        className={styles.label}
-                    >
-                        Responsável Técnico
-                    </label>
-
-                    <select
-                        name="resposavel"
-                        id="resposavel"
-                        className={styles.input}
-                    >
-                        {tecnicosDeCampo.map((tec, k) =>
-                            <option
-                                key={k}
-                                value={tec.value}
-                            >
-                                {tec.nome}
-                            </option>
-                        )}
-                    </select>
-                </div>
-
-                <div className={styles.campo}>
-                    <label
-                        htmlFor="empresa"
-                        className={styles.label}
-                    >
-                        Empresa Executora
-                    </label>
-                    <input
-                        type="text"
-                        name="empresa"
-                        id="empresa"
-                        placeholder="Nome da Empresa"
-                        className={styles.input}
-                    />
-                </div>
-
-                <div className={styles.campo}>
-                    <label
-                        htmlFor="data"
-                        className={styles.label}
-                    >
-                        Data do Relatório
-                    </label>
-                    <input
-                        type="date"
-                        name="data"
-                        id="data"
-                        value={dataRelatorio}
-                        onChange={(e) => setDataRealatorio(e.target.value)}
-                        className={styles.input}
-                    />
-                </div>
-
-                <div className={styles.campo}>
-                    <label
-                        htmlFor="periodo"
-                        className={styles.label}
-                    >
-                        Período
-                    </label>
-
-                    <select
-                        name="periodo"
-                        id="periodo"
-                        className={styles.input}
-                    >
-                        <option>Selecione...</option>
-                        <option>Diurno</option>
-                        <option>Noturno</option>
-                    </select>
-                </div>
+                        <label htmlFor={campo.chave} className={styles.label}>{campo.label}</label>
+                        {renderizarCampo(campo)}
+                    </div>
+                ))}
 
                 <div className={styles.horario}>
                     <div className={styles.campo}>
